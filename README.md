@@ -1,6 +1,9 @@
 # Maple
+
 **PHP Static Site Generator**
-#### Video Demo:  *coming*
+
+<img width="1410" height="529" alt="Image" src="https://github.com/user-attachments/assets/f24df4ec-eeda-4c94-8b24-0a89a2e89015" />
+
 #### Description:
 A streamlined static site generator written in PHP. Suitable for smaller sites, all content is stored in .md files and published to .html pages without needing a database.
 
