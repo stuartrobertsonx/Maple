@@ -1,6 +1,15 @@
 # Maple
+
 **PHP Static Site Generator**
-#### Video Demo:  *coming*
+
+![PHP Badge](https://img.shields.io/badge/PHP-777BB4?logo=php&logoColor=fff&style=flat)
+![Markdown Badge](https://img.shields.io/badge/Markdown-000?logo=markdown&logoColor=fff&style=flat)
+![HTML5 Badge](https://img.shields.io/badge/HTML5-E34F26?logo=html5&logoColor=fff&style=flat)
+![CSS Badge](https://img.shields.io/badge/CSS-639?logo=css&logoColor=fff&style=flat)
+[![](https://badgen.net/static/rubber%20duck%20debugger/quack/DB1)](https://github.com/sebmestrallet/absurd-badges)
+
+<img width="1410" height="529" alt="Image" src="https://github.com/user-attachments/assets/f24df4ec-eeda-4c94-8b24-0a89a2e89015" />
+
 #### Description:
 A streamlined static site generator written in PHP. Suitable for smaller sites, all content is stored in .md files and published to .html pages without needing a database.
 
@@ -37,4 +46,4 @@ This software uses the following open source packages:
 
 ## CS50
 
-Thanks to David J. Malan, Yuliia Zhukovets, Brian Yu, Doug Llyod and the rest of the CS50 staff at Harvard University.
+Thanks to [David J. Malan](https://github.com/dmalan), Yuliia Zhukovets, [Brian Yu](https://github.com/brianyu28), [Doug Llyod](https://github.com/dlloyd09) and the rest of the CS50 staff at Harvard University.
