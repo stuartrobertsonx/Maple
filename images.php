@@ -25,15 +25,15 @@ if ( isset( $_SESSION['user_id'] ) ) { // If set allow access to page
         foreach ($imgScan as $row) { 
             echo "<tr>";
             echo "<td><a href=\"../img/{$row["name"]}\">{$row["name"]}</a></td>";
-            echo "<td>{$row["date"]}</a></td>";
-            echo "<td>{$row["size"]}</a></td>";
+            echo "<td>{$row["date"]}</td>";
+            echo "<td>{$row["size"]}</td>";
             echo "</tr>";
         }
         ?>
     </table>
     <form class="upload" action="upload.php" method="post" enctype="multipart/form-data">
     <label for="fileToUpload">Select image to upload:</label>
-    <input type="file" name="fileToUpload" id="fileToUpload" required>
+    <input type="file" accept=".jpg, .jpeg, .png, .gif" name="fileToUpload" id="fileToUpload" required>
     <input class="boxbutton" type="submit" value="Upload Image" name="submit">
     </form>
     </main>

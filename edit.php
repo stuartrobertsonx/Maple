@@ -12,7 +12,7 @@ if ( isset( $_SESSION['user_id'] ) ) { // If set allow access to page
                 <textarea id="mdContent" name="mdContent" required><?php echo $mdContent; ?></textarea>
                 <input type="hidden" id="mdName" name="mdName" value="<?php echo $mdName ?>">
             <?php } else { ?>
-        <input class="mdtitle" type="text" id="mdName" name="mdName" placeholder="filename" required>.md
+        <input class="mdtitle" type="text" id="mdName" name="mdName" placeholder="filename" pattern="[\-a-zA-Z0-9]+" title="letters, numbers, dashes" required>.md
         <textarea id="mdContent" name="mdContent" required 
 placeholder="+++
 title = Example
