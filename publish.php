@@ -5,7 +5,7 @@ if ( isset( $_SESSION['user_id'] ) ) { // If set allow access to page
   require 'mplconf.php';
   require 'parsedown/Parsedown.php';
   if (isset($_POST['md'])) {
-      $filterName = htmlspecialchars(str_replace("/","-",$_POST['md']));    
+      $filterName = preg_replace("/[^A-Za-z0-9-]/", "", $_POST['md']);    
       $mdPath = MDPATH . $filterName . ".md";
       $htmlPath = HTMLPATH . $filterName . ".html";
       $mdContent = "";
@@ -49,14 +49,17 @@ if ( isset( $_SESSION['user_id'] ) ) { // If set allow access to page
       }
       $metaContent = "";
       if (isset($result['title'])) {
-        $metaContent = $metaContent . "<title>" . $result['title'] . "</title>\n";
+        $filterTitle = preg_replace("/[^A-Za-z0-9-.,?!]/", "", $result['title']);
+        $metaContent = $metaContent . "<title>" . $filterTitle . "</title>\n";
       } else {
         $metaContent = $metaContent . "<title>untitled document</title>\n";
       }
       if (isset($result)) {
         foreach ($result as $key => $value) {
           if ($key != "title") {
-            $metaContent = $metaContent . "<meta name='$key' content='$value'>\n";
+            $filterKey = preg_replace("/[^A-Za-z0-9-.,?!]/", "", $key);
+            $filterValue = preg_replace("/[^A-Za-z0-9-.,?!]/", "", $value);
+            $metaContent = $metaContent . "<meta name='$filterKey' content='$filterValue'>\n";
           }
         }
       }
@@ -90,14 +93,17 @@ if ( isset( $_SESSION['user_id'] ) ) { // If set allow access to page
     }
     $metaContent = "";
     if (isset($result['title'])) {
-        $metaContent = $metaContent . "<title>" . $result['title'] . "</title>\n";
+        $filterTitle = preg_replace("/[^A-Za-z0-9-.,?!]/", "", $result['title']);
+        $metaContent = $metaContent . "<title>" . $filterTitle . "</title>\n";
     } else {
         $metaContent = $metaContent . "<title>untitled document</title>\n";
     }
     if (isset($result)) {
       foreach ($result as $key => $value) {
         if ($key != "title") {
-          $metaContent = $metaContent . "<meta name='$key' content='$value'>\n";
+          $filterKey = preg_replace("/[^A-Za-z0-9-.,?!]/", "", $key);
+          $filterValue = preg_replace("/[^A-Za-z0-9-.,?!]/", "", $value);
+          $metaContent = $metaContent . "<meta name='$filterKey' content='$filterValue'>\n";
         }
       }
     }

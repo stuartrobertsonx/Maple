@@ -7,11 +7,19 @@ if ( isset( $_SESSION['user_id'] ) ) { // If set allow access to page
     <aside><p id="logout"><a class="boxbutton" href="logout.php">Logout</a></p></aside>
     <main>
         <form action="updateContent.php" method="post">
-            <?php if (isset($_GET['md'])) { ?>
-                <p><?php echo $_GET['md']; ?>.md</p>
+            <?php if (isset($_GET['md'])) { 
+                if ($mdName == "") {
+                    echo '<input class="mdtitle" type="text" id="mdName" name="mdName" placeholder="filename" pattern="[\-a-zA-Z0-9]+" title="letters, numbers, dashes" required>.md';
+                } else {
+                    echo "<p>" . $mdName . ".md</p>"; 
+                }
+                ?>
                 <textarea id="mdContent" name="mdContent" required><?php echo $mdContent; ?></textarea>
-                <input type="hidden" id="mdName" name="mdName" value="<?php echo $mdName ?>">
-            <?php } else { ?>
+                <?php 
+                    if ($mdName != "") { 
+                        echo "<input type=\"hidden\" id=\"mdName\" name=\"mdName\" value=\"$mdName\">";
+                    }
+                } else { ?>
         <input class="mdtitle" type="text" id="mdName" name="mdName" placeholder="filename" pattern="[\-a-zA-Z0-9]+" title="letters, numbers, dashes" required>.md
         <textarea id="mdContent" name="mdContent" required 
 placeholder="+++

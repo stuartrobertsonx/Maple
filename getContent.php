@@ -1,9 +1,10 @@
 <?php
 require 'mplconf.php';
+$mdName = "";
 if (isset($_GET['md'])) {
-    $filter = MDPATH . htmlspecialchars(str_replace("/","-",$_GET['md'])) . ".md";
+    $filter = MDPATH . preg_replace("/[^A-Za-z0-9-]/", "", $_GET['md']) . ".md";
     if (file_exists($filter)) {
-        $mdName = $_GET['md'];
+        $mdName = preg_replace("/[^A-Za-z0-9-]/", "", $_GET['md']);
         $mdContent = file_get_contents($filter);
     }
 }
