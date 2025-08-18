@@ -1,8 +1,15 @@
+:root {
+  --bg: #fff;
+  --bg2: #f2f2f2;
+  --fg: #111;
+  --fg2: #333;
+}
+
 html, body, input {
   font-family: 'Courier New', Courier, monospace;
   font-size: 16px;
 }
-a, button { color: #000; }
+a, button { color: var(--fg); }
 body { padding: 0 2rem; }
 button, form, input, textarea { font-size: 16px; }
 input:focus, textarea { outline: none !important; }
@@ -11,29 +18,29 @@ table {
   border-collapse: collapse;
 }
 footer {
-  border-top: 1px solid #000;
+  border-top: 1px solid var(--fg2);
   margin-top: 2rem;
   text-align: right;
 }
 main {
   clear: both;
 }
+nav a {
+    border: 1px solid var(--fg2);
+    padding: 0.5rem;
+    text-decoration: none;
+}
+nav a.active { border-bottom-color: var(--bg);}
 nav li { 
   display: inline-block;
   padding-bottom: 0.5rem;
 }
-nav a {
-    border: 1px solid #000;
-    padding: 0.5rem;
-    text-decoration: none;
-}
-nav a.active { border-bottom-color:#fff;}
 nav li:last-child a { margin-right: 0.5rem; }
 nav ul {
   display:flex;
   justify-content: flex-end;
   gap: 0.5rem;
-  border-bottom: 1px solid #000;
+  border-bottom: 1px solid var(--fg2);
 }
 td { padding: 0.25rem 0; }
 textarea {
@@ -45,7 +52,7 @@ textarea {
   line-height: 1.5;
 }
 th { text-align: left; }
-tr:nth-child(even) { background-color: #f2f2f2; }
+tr:nth-child(even) { background-color: var(--bg2); }
 .button, .boxbutton {
   border: none;
   background: none;
@@ -54,7 +61,7 @@ tr:nth-child(even) { background-color: #f2f2f2; }
   text-decoration: underline;
 }
 .boxbutton, .mdtitle { 
-  border: 1px solid #000;
+  border: 1px solid var(--fg2);
   text-decoration: none;
   padding: 0.5rem;
   margin: 0.5rem 0;
@@ -74,7 +81,7 @@ tr:nth-child(even) { background-color: #f2f2f2; }
   border: 1px solid;
   padding: 2rem;
   display: block;
-  width: 360px;
+  max-width: 360px;
   margin: 0 auto;
 }
 #login input {
@@ -87,3 +94,28 @@ tr:nth-child(even) { background-color: #f2f2f2; }
   padding-bottom: 1rem;
 }
 #topLinks { text-align:right; }
+
+@media screen and (max-width: 768px) {
+    pre { font-size: 11px; }
+}
+@media (prefers-color-scheme: dark) {
+:root {
+  --bg: #1c1c1e;
+  --bg2: #333;
+  --fg: #fefefe;
+  --fg2: #666;
+}
+  body {
+    background-color: var(--bg);
+    color: var(--fg);
+  }
+  a, button { color: var(--fg); }
+  footer, nav a, nav ul, .boxbutton, .mdtitle, #login  { border-color: var(--fg2); }
+  nav a.active { border-bottom-color: var(--bg); }
+  tr:nth-child(even) { background-color: var(--bg2); }
+  form input { 
+    background-color: var(--bg);
+    color: var(--fg);    
+    border:1px solid var(--bg2);
+  }
+}
